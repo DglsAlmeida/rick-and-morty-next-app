@@ -5,7 +5,7 @@ export const Container = styled.div`
   opacity: 0.9;
   border-radius: 10px;
   padding: 1rem;
-  width: 80%;
+  width: 40rem;
   color: #666360;
   display: flex;
   align-items: center;
@@ -29,5 +29,6 @@ export const Container = styled.div`
 
   @media (max-width: 768px) {
     padding: 0.8rem;
+    width: 80%;
   }
 `
