@@ -1,14 +1,12 @@
+import { useCallback } from 'react'
 import Input from '../Input'
 import * as Styles from './styles'
 import { BsSearch } from 'react-icons/bs'
-import useDebounce from '../../hooks/useDebounce'
 
 export const Header = () => {
-  const handleInput = (text: string) => {
-    console.log(text)
-  }
-
-  const debouncedFn = useDebounce(handleInput, 2000)
+  const handleInput = useCallback((event) => {
+    console.log(event.target.value)
+  }, [])
 
   return (
     <Styles.HeaderWrapper>
@@ -20,7 +18,7 @@ export const Header = () => {
           placeholder="Search"
           icon={BsSearch}
           iconColor="#FFF"
-          onChange={() => debouncedFn('hello')}
+          onChange={handleInput}
         />
       </Styles.InputWrapper>
     </Styles.HeaderWrapper>
