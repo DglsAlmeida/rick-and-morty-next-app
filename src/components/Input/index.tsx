@@ -7,15 +7,17 @@ import * as Styles from './styles'
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   icon?: React.ComponentType<IconBaseProps>
   iconColor?: string
+  debounceDelay?: number
 }
 
 const Input: React.FC<InputProps> = ({
   icon: Icon,
   iconColor,
+  debounceDelay,
   onChange,
   ...rest
 }) => {
-  const debouncedFn = useDebounce(onChange, 500)
+  const debouncedFn = useDebounce(onChange, debounceDelay || 500)
 
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     debouncedFn(event)
@@ -23,7 +25,7 @@ const Input: React.FC<InputProps> = ({
 
   return (
     <Styles.Container>
-      {Icon && <Icon size={20} color={iconColor} />}
+      {Icon && <Icon size={20} color={iconColor} aria-label="icon" />}
       <input {...rest} onChange={handleOnChange} />
     </Styles.Container>
   )

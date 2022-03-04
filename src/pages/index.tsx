@@ -1,6 +1,6 @@
 import { CharacterCard } from '../components/CharacterCard'
 import { Header } from '../components/Header'
-import * as Styles from '../styles/home-styles'
+import * as Styles from '../styles/home'
 
 export default function Home() {
   return (

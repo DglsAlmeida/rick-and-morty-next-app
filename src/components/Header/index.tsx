@@ -19,6 +19,7 @@ export const Header = () => {
           icon={BsSearch}
           iconColor="#FFF"
           onChange={handleInput}
+          debounceDelay={500}
         />
       </Styles.InputWrapper>
     </Styles.HeaderWrapper>
