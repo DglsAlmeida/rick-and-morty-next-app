@@ -1,33 +1,38 @@
 import * as Styles from './styles'
 import { usePalette } from 'react-palette'
 
-// type CharacterCardProps = {
+type CharacterCardProps = {
+  id: number
+  name: string
+  status: string
+  species: string
+  image: string
+}
 
-// }
-
-export const CharacterCard = () => {
-  const { data, loading } = usePalette(
-    'https://rickandmortyapi.com/api/character/avatar/1.jpeg'
-  )
+export const CharacterCard = ({
+  id,
+  name,
+  status,
+  species,
+  image
+}: CharacterCardProps) => {
+  const { data, loading } = usePalette(image)
 
   if (loading) return <div>Loading...</div>
 
   return (
     <Styles.CardWrapper style={{ backgroundColor: data?.muted }}>
       <Styles.CardDescription>
-        <Styles.CharacterID>#1</Styles.CharacterID>
-        <Styles.CharacterName>Rick Sanchez</Styles.CharacterName>
+        <Styles.CharacterID>#{id}</Styles.CharacterID>
+        <Styles.CharacterName>{name}</Styles.CharacterName>
         <Styles.CharacterDetails>
-          <span>Alive</span>
-          <span>Human</span>
+          <span>{status}</span>
+          <span>{species}</span>
         </Styles.CharacterDetails>
       </Styles.CardDescription>
 
       <Styles.ImgContainer>
-        <img
-          src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
-          alt=""
-        />
+        <img src={image} alt={name} />
       </Styles.ImgContainer>
     </Styles.CardWrapper>
   )

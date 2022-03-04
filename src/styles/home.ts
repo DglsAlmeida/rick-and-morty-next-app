@@ -29,3 +29,9 @@ export const Subtitle = styled.span`
   font-size: 1rem;
   padding-top: 0.2rem;
 `
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  margin-top: 0.875rem;
+  align-items: center;
+`

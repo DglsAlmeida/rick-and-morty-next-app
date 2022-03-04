@@ -1,8 +1,29 @@
 import { CharacterCard } from '../components/CharacterCard'
 import { Header } from '../components/Header'
 import * as Styles from '../styles/home'
+import { useQuery } from 'react-query'
+import { getCharacters } from '../services/api'
+import { useState } from 'react'
 
 export default function Home() {
+  const [page, setPage] = useState(1)
+
+  const { isLoading, data } = useQuery(['characters', page], () =>
+    getCharacters(page)
+  )
+
+  const previousPage = () => {
+    if (page > 1) {
+      setPage(page - 1)
+    }
+  }
+
+  const nextPage = () => setPage(page + 1)
+
+  if (isLoading) {
+    return <p>Loading...</p>
+  }
+
   return (
     <Styles.HomeWrapper>
       <Header />
@@ -14,7 +35,21 @@ export default function Home() {
           character
         </Styles.Subtitle>
 
-        <CharacterCard />
+        {data?.results.map((data) => (
+          <CharacterCard
+            key={data.id}
+            id={data.id}
+            name={data.name}
+            status={data.status}
+            species={data.species}
+            image={data.image}
+          />
+        ))}
+
+        <Styles.ButtonContainer>
+          <button onClick={previousPage}>previous</button>
+          <button onClick={nextPage}>next</button>
+        </Styles.ButtonContainer>
       </Styles.Content>
     </Styles.HomeWrapper>
   )
