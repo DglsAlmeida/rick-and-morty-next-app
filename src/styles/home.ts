@@ -30,6 +30,22 @@ export const Subtitle = styled.span`
   padding-top: 0.2rem;
 `
 
+export const CardsContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr)
+  gap: 30px 20px;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+`
+
 export const ButtonContainer = styled.div`
   display: flex;
   margin-top: 0.875rem;

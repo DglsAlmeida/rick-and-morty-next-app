@@ -4,6 +4,7 @@ import * as Styles from '../styles/home'
 import { useQuery } from 'react-query'
 import { getCharacters } from '../services/api'
 import { useState } from 'react'
+import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai'
 
 export default function Home() {
   const [page, setPage] = useState(1)
@@ -35,20 +36,25 @@ export default function Home() {
           character
         </Styles.Subtitle>
 
-        {data?.results.map((data) => (
-          <CharacterCard
-            key={data.id}
-            id={data.id}
-            name={data.name}
-            status={data.status}
-            species={data.species}
-            image={data.image}
-          />
-        ))}
-
+        <Styles.CardsContainer>
+          {data?.results.map((data) => (
+            <CharacterCard
+              key={data.id}
+              id={data.id}
+              name={data.name}
+              status={data.status}
+              species={data.species}
+              image={data.image}
+            />
+          ))}
+        </Styles.CardsContainer>
         <Styles.ButtonContainer>
-          <button onClick={previousPage}>previous</button>
-          <button onClick={nextPage}>next</button>
+          <button onClick={previousPage}>
+            <AiOutlineArrowLeft />
+          </button>
+          <button onClick={nextPage}>
+            <AiOutlineArrowRight />
+          </button>
         </Styles.ButtonContainer>
       </Styles.Content>
     </Styles.HomeWrapper>
