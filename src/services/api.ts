@@ -1,5 +1,8 @@
 import axios from 'axios'
-import { GetCharactersResponse } from './api-types'
+import {
+  GetCharacterResponse,
+  GetCharactersResponse
+} from '../types/characters'
 
 const BASE_URL = 'https://rickandmortyapi.com/api/'
 
@@ -24,4 +27,9 @@ export const getCharacters = async (
   }
 }
 
-export const getEpisodes = async () => api.get('episode')
+export const getCharacter = async (
+  characterId: string
+): Promise<GetCharacterResponse> => {
+  const { data } = await api.get(`character/${characterId}`)
+  return data
+}

@@ -4,6 +4,8 @@ export const HomeWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  margin-bottom: 3.125rem;
 `
 
 export const Content = styled.main`
@@ -32,7 +34,7 @@ export const Subtitle = styled.span`
 
 export const CardsContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr)
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px 20px;
 
   @media (max-width: 1200px) {
@@ -48,6 +50,24 @@ export const CardsContainer = styled.div`
 
 export const ButtonContainer = styled.div`
   display: flex;
-  margin-top: 0.875rem;
+  margin-top: 1.25rem;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  button {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    & + button {
+      margin-left: 50px;
+    }
+
+    &:hover {
+      background: #d1d1d1;
+      border-radius: 5px;
+    }
+  }
 `

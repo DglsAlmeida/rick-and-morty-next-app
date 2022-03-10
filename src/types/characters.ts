@@ -19,3 +19,14 @@ export interface GetCharactersResponse {
   info: Info
   results: Results[]
 }
+
+export interface GetCharacterResponse {
+  data: {
+    id: number
+    name: string
+    episode: Array<string>
+    status: string
+    species: string
+    image: string
+  }
+}

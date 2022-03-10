@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { BsSearch } from 'react-icons/bs'
-import Input from '.'
+import Input from './Input'
 
 describe('<Input />', () => {
   it('should render a icon', () => {

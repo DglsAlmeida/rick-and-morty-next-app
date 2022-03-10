@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const CardWrapper = styled.div`
+export const CardWrapper = styled.a`
   display: flex;
   align-items: center;
   height: 12rem;
@@ -12,6 +12,8 @@ export const CardWrapper = styled.div`
   box-shadow: 0 0 20px 0 #fff;
   will-change: box-shadow, transform;
   transition: 0.2s all;
+  cursor: pointer;
+  text-decoration: none;
 
   &:hover {
     transform: translateY(-5px);

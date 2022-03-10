@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import Input from '../Input'
+import Input from '../Input/Input'
 import * as Styles from './styles'
 import { BsSearch } from 'react-icons/bs'
 

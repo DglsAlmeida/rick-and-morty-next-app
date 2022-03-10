@@ -1,5 +1,5 @@
-import { CharacterCard } from '../components/CharacterCard'
-import { Header } from '../components/Header'
+import { CharacterCard } from '../components/CharacterCard/CharacterCard'
+import { Header } from '../components/Header/Header'
 import * as Styles from '../styles/home'
 import { useQuery } from 'react-query'
 import { getCharacters } from '../services/api'
@@ -9,8 +9,12 @@ import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai'
 export default function Home() {
   const [page, setPage] = useState(1)
 
-  const { isLoading, data } = useQuery(['characters', page], () =>
-    getCharacters(page)
+  const { isLoading, data } = useQuery(
+    ['characters', page],
+    () => getCharacters(page),
+    {
+      staleTime: 1000 * 60
+    }
   )
 
   const previousPage = () => {
@@ -50,10 +54,10 @@ export default function Home() {
         </Styles.CardsContainer>
         <Styles.ButtonContainer>
           <button onClick={previousPage}>
-            <AiOutlineArrowLeft />
+            <AiOutlineArrowLeft size={26} />
           </button>
           <button onClick={nextPage}>
-            <AiOutlineArrowRight />
+            <AiOutlineArrowRight size={26} />
           </button>
         </Styles.ButtonContainer>
       </Styles.Content>
