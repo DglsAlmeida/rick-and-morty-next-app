@@ -4,7 +4,7 @@ import { getCharacter } from '../../services/api'
 import * as Styles from '../../styles/character'
 import Link from 'next/link'
 import { Location } from '../../types/characters'
-import { useRouter } from 'next/router'
+import { CharacterDetail } from '../../components/CharacterDetail/CharacterDetail'
 
 type Character = {
   name: string
@@ -37,15 +37,11 @@ const Character = ({ character }: CharacterProps) => {
         <Styles.Name>{character.name}</Styles.Name>
 
         <Styles.CharacterDetails>
-          <Styles.DetailsItem>
-            Episodes: {character.episode.length}
-          </Styles.DetailsItem>
-          <Styles.DetailsItem>Status: {character.status}</Styles.DetailsItem>
-          <Styles.DetailsItem>Species: {character.species}</Styles.DetailsItem>
-          <Styles.DetailsItem>Gender: {character.gender}</Styles.DetailsItem>
-          <Styles.DetailsItem>
-            Location: {character.location.name}
-          </Styles.DetailsItem>
+          <CharacterDetail text={`Episodes: ${character.episode.length}`} />
+          <CharacterDetail text={`Status: ${character.status}`} />
+          <CharacterDetail text={`Species: ${character.species}`} />
+          <CharacterDetail text={`Gender: ${character.gender}`} />
+          <CharacterDetail text={`Location: ${character.location.name}`} />
         </Styles.CharacterDetails>
       </Styles.CharacterContent>
     </Styles.CharacterWrapper>

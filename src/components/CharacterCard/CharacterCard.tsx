@@ -1,6 +1,7 @@
 import * as Styles from './styles'
 import { usePalette } from 'react-palette'
 import Link from 'next/link'
+import { CharacterDetail } from '../CharacterDetail/CharacterDetail'
 
 type CharacterCardProps = {
   id: number
@@ -28,8 +29,8 @@ export const CharacterCard = ({
           <Styles.CharacterID>#{id}</Styles.CharacterID>
           <Styles.CharacterName>{name}</Styles.CharacterName>
           <Styles.CharacterDetails>
-            <span>{status}</span>
-            <span>{species}</span>
+            <CharacterDetail text={`${status}`} />
+            <CharacterDetail text={`${species}`} />
           </Styles.CharacterDetails>
         </Styles.CardDescription>
 

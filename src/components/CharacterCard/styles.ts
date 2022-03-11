@@ -33,6 +33,14 @@ export const CardDescription = styled.div`
   flex: 1;
   height: 100%;
   padding: 0.75rem;
+
+  @media (max-width: 768px) {
+    padding: 0.5rem 0.75rem;
+  }
+
+  @media (max-width: 7425px) {
+    padding: 0.2rem 0 0.2rem 0.5rem;
+  }
 `
 
 export const CharacterID = styled.span`
@@ -47,6 +55,10 @@ export const CharacterName = styled.span`
 
   @media (max-width: 768px) {
     margin-top: 0.5rem;
+  }
+
+  @media (max-width: 425px) {
+    margin-top: 0.3rem;
   }
 `
 

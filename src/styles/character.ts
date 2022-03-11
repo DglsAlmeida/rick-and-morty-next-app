@@ -68,19 +68,7 @@ export const CharacterDetails = styled.div`
   align-items: center;
   margin-top: 0.75rem;
 
-  span {
-    background: rgba(255, 255, 255, 0.15);
-    padding: 0.313rem 0.938rem;
-    border-radius: 50px;
-    opacity: 0.8;
-  }
-`
-
-export const DetailsItem = styled.span`
-  color: #fff;
-  font-size: 1.125rem;
-
-  & + & {
-    margin-top: 0.5rem;
+  span + span {
+    margin-top: 0.75rem;
   }
 `
