@@ -30,3 +30,13 @@ export interface GetCharacterResponse {
     image: string
   }
 }
+
+export interface CharacterData {
+  name: string
+  gender: string
+  episode: Array<number>
+  image: string
+  status: string
+  species: string
+  location: Location
+}

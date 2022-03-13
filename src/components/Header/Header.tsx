@@ -1,27 +1,16 @@
 import { useCallback } from 'react'
 import Input from '../Input/Input'
 import * as Styles from './styles'
-import { BsSearch } from 'react-icons/bs'
 
-export const Header = () => {
-  const handleInput = useCallback((event) => {
-    console.log(event.target.value)
-  }, [])
+type HeaderProps = {
+  children: React.ReactNode
+}
 
+export const Header = ({ children }: HeaderProps) => {
   return (
     <Styles.HeaderWrapper>
       <Styles.ImgHeader />
-
-      <Styles.InputWrapper>
-        <Input
-          name="input"
-          placeholder="Search"
-          icon={BsSearch}
-          iconColor="#FFF"
-          onChange={handleInput}
-          debounceDelay={500}
-        />
-      </Styles.InputWrapper>
+      <Styles.InputWrapper>{children}</Styles.InputWrapper>
     </Styles.HeaderWrapper>
   )
 }

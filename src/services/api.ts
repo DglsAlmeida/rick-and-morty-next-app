@@ -11,25 +11,35 @@ const api = axios.create({
 })
 
 export const getCharacters = async (
-  page: number
+  page: number,
+  name?: string
 ): Promise<GetCharactersResponse> => {
-  const { data } = await api.get('character', {
-    params: {
-      page
+  try {
+    const { data } = await api.get('character', {
+      params: {
+        page,
+        name: name || ''
+      }
+    })
+
+    const { info, results } = data
+
+    return {
+      info,
+      results
     }
-  })
-
-  const { info, results } = data
-
-  return {
-    info,
-    results
+  } catch (err: any) {
+    throw new Error(err)
   }
 }
 
 export const getCharacter = async (
   characterId: string
 ): Promise<GetCharacterResponse> => {
-  const { data } = await api.get(`character/${characterId}`)
-  return data
+  try {
+    const { data } = await api.get(`character/${characterId}`)
+    return data
+  } catch (err: any) {
+    throw new Error(err)
+  }
 }

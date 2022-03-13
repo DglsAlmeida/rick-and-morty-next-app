@@ -3,21 +3,11 @@ import { AiOutlineArrowLeft } from 'react-icons/ai'
 import { getCharacter } from '../../services/api'
 import * as Styles from '../../styles/character'
 import Link from 'next/link'
-import { Location } from '../../types/characters'
+import { CharacterData } from '../../types/characters'
 import { CharacterDetail } from '../../components/CharacterDetail/CharacterDetail'
 
-type Character = {
-  name: string
-  gender: string
-  episode: Array<number>
-  image: string
-  status: string
-  species: string
-  location: Location
-}
-
 type CharacterProps = {
-  character: Character
+  character: CharacterData
 }
 
 const Character = ({ character }: CharacterProps) => {
