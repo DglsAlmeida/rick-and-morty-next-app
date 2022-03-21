@@ -1,27 +1,18 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { Header } from '../components/Header/Header'
 import * as Styles from '../styles/home'
-import { useQuery } from 'react-query'
-import { getCharacters } from '../services/api'
 import { useCallback, useState } from 'react'
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai'
 import Input from '../components/Input/Input'
 import { BsSearch } from 'react-icons/bs'
 import { CharacterCard } from '../components/CharacterCard/CharacterCard'
+import { useCharacters } from '../services/hooks/useCharacters'
 
 export default function Home() {
   const [page, setPage] = useState(1)
   const [search, setSearch] = useState('')
 
-  const { isLoading, data } = useQuery(
-    ['characters', page, search],
-    () => getCharacters(page, search),
-    {
-      staleTime: 1000 * 60,
-      keepPreviousData: true,
-      retry: false
-    }
-  )
+  const { isLoading, data } = useCharacters(page)
 
   const handleInput = useCallback((event) => {
     setSearch(event.target.value)

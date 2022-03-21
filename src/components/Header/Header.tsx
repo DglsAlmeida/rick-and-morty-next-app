@@ -1,15 +1,13 @@
-import { useCallback } from 'react'
-import Input from '../Input/Input'
 import * as Styles from './styles'
 
 type HeaderProps = {
-  children: React.ReactNode
+  children?: React.ReactNode
 }
 
 export const Header = ({ children }: HeaderProps) => {
   return (
     <Styles.HeaderWrapper>
-      <Styles.ImgHeader />
+      <Styles.ImgHeader aria-label="img-header" />
       <Styles.InputWrapper>{children}</Styles.InputWrapper>
     </Styles.HeaderWrapper>
   )

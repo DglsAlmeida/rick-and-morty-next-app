@@ -1,10 +1,10 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { AiOutlineArrowLeft } from 'react-icons/ai'
-import { getCharacter } from '../../services/api'
 import * as Styles from '../../styles/character'
 import Link from 'next/link'
 import { CharacterData } from '../../types/characters'
 import { CharacterDetail } from '../../components/CharacterDetail/CharacterDetail'
+import { getCharacter } from '../../services/character/getCharacter'
 
 type CharacterProps = {
   character: CharacterData

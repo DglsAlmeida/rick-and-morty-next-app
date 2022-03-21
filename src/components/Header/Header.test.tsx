@@ -4,6 +4,6 @@ import { Header } from './Header'
 describe('<Header />', () => {
   it('should render correctly', () => {
     render(<Header />)
-    expect(screen.getByPlaceholderText(/search/i)).toBeInTheDocument()
+    expect(screen.getByLabelText(/img-header/i)).toBeInTheDocument()
   })
 })
